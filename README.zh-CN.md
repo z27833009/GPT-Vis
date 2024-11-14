@@ -7,7 +7,7 @@
 Components for GPTs, generative AI, and LLM projects. Not only UI Components.
 
 <p align="center">
-  <a href="https://gpt-vis.antv.com" target="_blank">文档</a> •
+  <a href="https://gpt-vis.antv.vision" target="_blank">文档</a> •
   <a href="/knowledges" target="_blank">知识库</a> •
   <a href="https://huggingface.co/antvis" target="_blank">Huggingface</a> •
   <a href="https://tbox.alipay.com/share/202410APr1n200110168?platform=WebService" target="_blank">体验 Agent</a>
