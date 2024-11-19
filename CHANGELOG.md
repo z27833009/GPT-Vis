@@ -1,5 +1,17 @@
 # @antv/gpt-vis
 
+## 0.2.0
+
+### Minor Changes
+
+- [#12](https://github.com/antvis/GPT-Vis/pull/12) [`6fbc29d`](https://github.com/antvis/GPT-Vis/commit/6fbc29d85644a55cf36745ec5cdc5519c22755c5) Thanks [@lvisei](https://github.com/lvisei)! - lite component for GPTVis
+
+### Patch Changes
+
+- [#13](https://github.com/antvis/GPT-Vis/pull/13) [`840d96e`](https://github.com/antvis/GPT-Vis/commit/840d96eeebabb0aa80d647040b64fa6dcc3daa33) Thanks [@BBSQQ](https://github.com/BBSQQ)! - fix(text): vis-text use parent container font-size
+
+- [#10](https://github.com/antvis/GPT-Vis/pull/10) [`030a60f`](https://github.com/antvis/GPT-Vis/commit/030a60fc7abb609f01f5fd0b9d6491bd9839d8ff) Thanks [@yvonneyx](https://github.com/yvonneyx)! - feat: graph supports global configuration
+
 ## 0.1.0
 
 ### Patch Changes
