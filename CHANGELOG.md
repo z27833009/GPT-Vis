@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.2.2
+
+### Patch Changes
+
+- [#37](https://github.com/antvis/GPT-Vis/pull/37) [`160c3a2`](https://github.com/antvis/GPT-Vis/commit/160c3a29ebf882868a3957570cf5df255b9e4042) Thanks [@lvisei](https://github.com/lvisei)! - feat: support table paraser
+
 ## 0.2.1
 
 ### Patch Changes
