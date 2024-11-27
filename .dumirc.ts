@@ -8,7 +8,7 @@ export default defineConfig({
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
     footer: `Open-source MIT Licensed | Copyright © 2024
 <br />
-Powered by <a herf="https://antv.antgroup.com">Antv</a>`,
+Powered by <a herf="https://antv.antgroup.com">AntV</a>`,
     socialLinks: {
       github: 'https://github.com/antvis/GPT-Vis',
     },
