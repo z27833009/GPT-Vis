@@ -23,6 +23,10 @@
   "typings": "dist/esm/index.d.ts",
   "jsdelivr": "dist/umd/index.min.js",
   "unpkg": "dist/umd/index.min.js",
+  "browser": {
+    "./src/export-map.ts": "./src/export-map.browser.ts",
+    "./dist/esm/export-map.js": "./dist/esm/export-map.browser.js"
+  },
   "files": [
     "dist",
     "README.md",
