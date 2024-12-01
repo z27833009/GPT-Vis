@@ -1,6 +1,6 @@
 {
   "name": "@antv/gpt-vis",
-  "version": "0.2.2",
+  "version": "0.3.0-beta.0",
   "description": "Components for GPTs, generative AI, and LLM projects. Not only UI Components.",
   "keywords": [
     "antv",
@@ -23,6 +23,10 @@
   "typings": "dist/esm/index.d.ts",
   "jsdelivr": "dist/umd/index.min.js",
   "unpkg": "dist/umd/index.min.js",
+  "browser": {
+    "./src/export-map.ts": "./src/export-map.browser.ts",
+    "./dist/esm/export-map.js": "./dist/esm/export-map.browser.js"
+  },
   "files": [
     "dist",
     "README.md",
@@ -70,6 +74,7 @@
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.13",
     "@types/react": "^18.0.0",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
     "antd": "^5.0.0",
     "dumi": "^2.4.13",
     "eslint": "^9.14.0",

@@ -17,7 +17,7 @@ export default defineConfig({
     },
     platform: 'browser',
     targets: {
-      chrome: 51,
+      chrome: 80,
     },
     externals: {
       lodash: '_',
