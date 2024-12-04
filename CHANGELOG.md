@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.3.1
+
+### Patch Changes
+
+- [#46](https://github.com/antvis/GPT-Vis/pull/46) [`9e1461f`](https://github.com/antvis/GPT-Vis/commit/9e1461f511743d33d031ce7020fff6d6efeff480) Thanks [@lvisei](https://github.com/lvisei)! - deps: move antd x to devDependencies
+
 ## 0.3.0
 
 ### Minor Changes
