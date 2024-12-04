@@ -1,5 +1,9 @@
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](./README.zh-CN.md) | [日本語](./README.ja-JP.md)
 
+<div align="center">
+  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" height=70">
+</div>
+
 <h1 align="center">GPT-Vis</h1>
 
 <div align="center">
@@ -11,11 +15,11 @@ Components for GPTs, generative AI, and LLM projects. **Not only UI Components**
   <a href="/knowledges" target="_blank">Knowledge</a> •
   <a href="https://tbox.alipay.com/experience/202410APr1n200110168?id=20241122F8eB00104644" target="_blank">Agent Demo</a>
 </p>
-
-<div align="center">
-  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" width=500">
 </div>
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/b8eb4a89-b0ed-4a39-8fab-316161949446" />
+  <!-- <a href="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*ut_RSJxdBMoAAAAAAAAAAAAADmJ7AQ/original" target="_blank"><img src="https://github.com/user-attachments/assets/d6e90e58-9bf7-4c40-a2db-96cbd68ed818" width="800"></a> -->
 </div>
 
 ## ✨ Features
@@ -65,7 +69,7 @@ export default () => {
 ```
 
 <details>
-<summary>🛠 Custom renderer</summary>
+<summary>🛠 Custom renderer UI</summary>
 
 ```jsx
 import { GPTVisLite, withChartCode, ChartType, Pie } from '@antv/gpt-vis';
@@ -140,7 +144,7 @@ Note: The numbers in the format of X/Y represent the metrics of the respective c
 
 ## 🤖 Chart Recommendation Dataset
 
-The chart recommendation dataset is designed to evaluate or fine-tune large language models on their ability to recommend chart types based on given data. The dataset currently encompasses 16 types of charts, with 1-3 different data scenarios per chart type, and more than 15 chart data instances for each scenario. The dataset is continuously updated, and we welcome contributions of chart data collected from your own use cases. For more detailed information about the dataset, please visit [evaluations/recommend](https://github.com/antvis/GPT-Vis/tree/main/evaluations/recommend/README.md).
+The chart recommendation dataset is designed to evaluate or fine-tune large language models on their ability to recommend chart types based on given data. The dataset currently encompasses 16 types of charts, with 1-3 different data scenarios per chart type, and more than 15 chart data instances for each scenario. The dataset is continuously updated, and we welcome contributions of chart data collected from your own use cases. For more detailed information about the dataset, please visit [evaluations/recommend](https://github.com/antvis/GPT-Vis/blob/main/evaluations/datastes/recommend/README.en.md).
 
 ## 💻 Development
 

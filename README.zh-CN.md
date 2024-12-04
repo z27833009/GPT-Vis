@@ -1,5 +1,9 @@
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> [English](./README.md) | 简体中文 | [日本語](./README.ja-JP.md)
 
+<div align="center">
+  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" height=70">
+</div>
+
 <h1 align="center">GPT-Vis</h1>
 
 <div align="center">
@@ -11,11 +15,10 @@ Components for GPTs, generative AI, and LLM projects. **Not only UI Components**
   <a href="/knowledges" target="_blank">知识库</a> •
   <a href="https://tbox.alipay.com/experience/202410APr1n200110168?id=20241122F8eB00104644" target="_blank">体验 Agent</a>
 </p>
-
-<div align="center">
-  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" width=500">
 </div>
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/b8eb4a89-b0ed-4a39-8fab-316161949446" />
 </div>
 
 ## 特性
@@ -65,7 +68,7 @@ export default () => {
 ```
 
 <details>
-<summary>🛠 定制渲染器</summary>
+<summary>🛠 定制渲染 UI</summary>
 
 ```jsx
 import { GPTVisLite, withChartCode, ChartType, Pie } from '@antv/gpt-vis';
@@ -138,7 +141,7 @@ set_gpt_vis(content)
 
 ## 🤖 图表模型推荐数据集
 
-图表推荐数据集用于评测/微调大模型在“给定数据，推荐图表类型”任务上的能力。数据集目前涵盖了 16 种图表类型，每种图表类型下 1-3 个不同数据场景，每个场景下 15+ 个图表数据。数据会持续更新，也欢迎向我们贡献你的使用场景中收集的图表数据。数据集详细信息见 [evaluations/recommend](https://github.com/antvis/GPT-Vis/tree/main/evaluations/recommend/README.md)
+图表推荐数据集用于评测/微调大模型在“给定数据，推荐图表类型”任务上的能力。数据集目前涵盖了 16 种图表类型，每种图表类型下 1-3 个不同数据场景，每个场景下 15+ 个图表数据。数据会持续更新，也欢迎向我们贡献你的使用场景中收集的图表数据。数据集详细信息见 [evaluations/recommend](https://github.com/antvis/GPT-Vis/blob/main/evaluations/datastes/recommend/README.md)
 
 ## 💻 本地开发
 

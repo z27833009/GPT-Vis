@@ -1,5 +1,9 @@
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> [English](./README.md) | [简体中文](./README.zh-CN.md) | 日本語
 
+<div align="center">
+  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" height=70">
+</div>
+
 <h1 align="center">GPT-Vis</h1>
 
 <div align="center">
@@ -11,11 +15,10 @@ GPTs、生成AI、およびLLMプロジェクトのためのコンポーネン�
   <a href="/knowledges" target="_blank">知識</a> •
   <a href="https://tbox.alipay.com/experience/202410APr1n200110168?id=20241122F8eB00104644" target="_blank">エージェントデモ</a>
 </p>
-
-<div align="center">
-  <img src="https://github.com/eosphoros-ai/GPT-Vis/assets/17919400/c8804ffb-d3d6-45d3-846f-cf217681ab05" width=500">
 </div>
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/b8eb4a89-b0ed-4a39-8fab-316161949446" />
 </div>
 
 ## ✨ 特徴
@@ -65,7 +68,7 @@ export default () => {
 ```
 
 <details>
-<summary>🛠 カスタムレンダラー</summary>
+<summary>🛠 レンダラーUIのカスタマイズ</summary>
 
 ```jsx
 import { GPTVisLite, withChartCode, ChartType, Pie } from '@antv/gpt-vis';
@@ -140,7 +143,7 @@ set_gpt_vis(content)
 
 ## 🤖 チャート推奨データセット
 
-チャート推奨データセットは、与えられたデータに基づいてチャートタイプを推奨する能力を評価または微調整するために設計されています。データセットは現在、16種類のチャートをカバーしており、各チャートタイプには1〜3の異なるデータシナリオがあり、各シナリオには15以上のチャートデータインスタンスがあります。データセットは継続的に更新されており、使用ケースから収集したチャートデータの提供を歓迎します。データセットの詳細については、[evaluations/recommend](https://github.com/antvis/GPT-Vis/tree/main/evaluations/recommend/README.md)をご覧ください。
+チャート推奨データセットは、与えられたデータに基づいてチャートタイプを推奨する能力を評価または微調整するために設計されています。データセットは現在、16種類のチャートをカバーしており、各チャートタイプには1〜3の異なるデータシナリオがあり、各シナリオには15以上のチャートデータインスタンスがあります。データセットは継続的に更新されており、使用ケースから収集したチャートデータの提供を歓迎します。データセットの詳細については、[evaluations/recommend](https://github.com/antvis/GPT-Vis/blob/main/evaluations/datastes/recommend/README.en.md)をご覧ください。
 
 ## 💻 開発
 
