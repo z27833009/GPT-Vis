@@ -1,5 +1,13 @@
 # @antv/gpt-vis
 
+## 0.3.2
+
+### Patch Changes
+
+- [#49](https://github.com/antvis/GPT-Vis/pull/49) [`4ea7cac`](https://github.com/antvis/GPT-Vis/commit/4ea7cac0d57029ef821a3a76a512d5cfcf288dba) Thanks [@lvisei](https://github.com/lvisei)! - fix: theme undefined with antd@4
+
+- [`1df2a15`](https://github.com/antvis/GPT-Vis/commit/1df2a150eff9580649fcc1824de571ac9f9df9bc) Thanks [@yvonneyx](https://github.com/yvonneyx)! - feat(comp): optimize flow diagram layout
+
 ## 0.3.1
 
 ### Patch Changes
