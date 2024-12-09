@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.3.3
+
+### Patch Changes
+
+- [#51](https://github.com/antvis/GPT-Vis/pull/51) [`376c22b`](https://github.com/antvis/GPT-Vis/commit/376c22b9412b07fd4073cdb967ec4df1ed709720) Thanks [@lzxue](https://github.com/lzxue)! - feat: map support update
+
 ## 0.3.2
 
 ### Patch Changes
