@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.0
+
+### Minor Changes
+
+- [#62](https://github.com/antvis/GPT-Vis/pull/62) [`e333060`](https://github.com/antvis/GPT-Vis/commit/e333060d66d7c082bae9d73f4c31e658c1c8e4e5) Thanks [@lvisei](https://github.com/lvisei)! - feat: support event for data communicate
+
 ## 0.3.4
 
 ### Patch Changes
