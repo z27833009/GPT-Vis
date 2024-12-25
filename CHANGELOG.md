@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.1
+
+### Patch Changes
+
+- [#64](https://github.com/antvis/GPT-Vis/pull/64) [`5bea040`](https://github.com/antvis/GPT-Vis/commit/5bea040fcd9102793e9fcbdb45e1d1a8450f201f) Thanks [@lvisei](https://github.com/lvisei)! - fix: add style props for map
+
 ## 0.4.0
 
 ### Minor Changes
