@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.2
+
+### Patch Changes
+
+- [#66](https://github.com/antvis/GPT-Vis/pull/66) [`cf9c479`](https://github.com/antvis/GPT-Vis/commit/cf9c479393058b380d4665e6ee512278c3d7572d) Thanks [@BBSQQ](https://github.com/BBSQQ)! - feat(text): optimize vis-text margin
+
 ## 0.4.1
 
 ### Patch Changes
