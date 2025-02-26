@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.3
+
+### Patch Changes
+
+- [#70](https://github.com/antvis/GPT-Vis/pull/70) [`9287abd`](https://github.com/antvis/GPT-Vis/commit/9287abdb4986c5e027a126d658b605a6c6e83d81) Thanks [@LAI-X](https://github.com/LAI-X)! - fix(text): modify the judgment rules of dark mode
+
 ## 0.4.2
 
 ### Patch Changes
