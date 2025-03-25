@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.4
+
+### Patch Changes
+
+- [#76](https://github.com/antvis/GPT-Vis/pull/76) [`c9a8b92`](https://github.com/antvis/GPT-Vis/commit/c9a8b92a64f82d791443b7b2f8a6d899c500ef46) Thanks [@hustcc](https://github.com/hustcc)! - change histogram data type to number array, and add title props
+
 ## 0.4.3
 
 ### Patch Changes
