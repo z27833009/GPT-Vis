@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.5
+
+### Patch Changes
+
+- [#80](https://github.com/antvis/GPT-Vis/pull/80) [`cdd178d`](https://github.com/antvis/GPT-Vis/commit/cdd178df929be1f111e5701c7c73fcab57e5fb79) Thanks [@heiyexing](https://github.com/heiyexing)! - feat: 流程图节点使用默认颜色作为填充色
+
 ## 0.4.4
 
 ### Patch Changes
