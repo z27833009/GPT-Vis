@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.7
+
+### Patch Changes
+
+- [#86](https://github.com/antvis/GPT-Vis/pull/86) [`8336bfd`](https://github.com/antvis/GPT-Vis/commit/8336bfdf62c3580198fc6ed3133a0d3f81b01538) Thanks [@lvisei](https://github.com/lvisei)! - fix: map bound
+
 ## 0.4.6
 
 ### Patch Changes
