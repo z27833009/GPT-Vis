@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.4.6
+
+### Patch Changes
+
+- [#84](https://github.com/antvis/GPT-Vis/pull/84) [`a8b1a23`](https://github.com/antvis/GPT-Vis/commit/a8b1a232ec515f248173404c30f41a31eb77c884) Thanks [@lvisei](https://github.com/lvisei)! - fix: rerender for pinmap
+
 ## 0.4.5
 
 ### Patch Changes
