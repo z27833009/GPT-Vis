@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.5.0-beta.0
+
+### Minor Changes
+
+- [#83](https://github.com/antvis/GPT-Vis/pull/83) [`c9f9adb`](https://github.com/antvis/GPT-Vis/commit/c9f9adb3e22bf697005a821529678f55c16d1d99) Thanks [@XinyueDu](https://github.com/XinyueDu)! - gpt-vis support ssr
+
 ## 0.4.7
 
 ### Patch Changes
