@@ -1,14 +1,16 @@
 import { createChart } from '@antv/g2-ssr';
 import { type PieProps } from '@antv/gpt-vis/dist/esm/Pie';
+import { THEME_MAP } from '../constant';
 import { CommonOptions } from './types';
 
 export type PieOptions = CommonOptions & PieProps;
 
 export async function Pie(options: PieOptions) {
-  const { data, title, width, height, innerRadius } = options;
+  const { data, title, width, height, innerRadius, theme = 'default' } = options;
 
   return await createChart({
     type: 'interval',
+    theme: THEME_MAP[theme],
     title,
     width,
     height,
