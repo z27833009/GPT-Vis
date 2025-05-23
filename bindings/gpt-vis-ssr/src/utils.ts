@@ -1,6 +1,5 @@
 import { G6 } from '@antv/g6-ssr';
-const { register, BaseNode, BaseTransform, ExtensionCategory, idOf, positionOf, treeToGraphData } =
-  G6;
+const { register, BaseNode, BaseTransform, ExtensionCategory, idOf } = G6;
 
 export const DEFAULT_COLOR_PALETTE = {
   type: 'assign-color-by-branch',
@@ -33,7 +32,7 @@ export const ACADEMY_COLOR_PALETTE = {
     '#bab0ab',
   ],
 };
-export class AssignColorByBranch extends BaseTransform {
+class AssignColorByBranch extends BaseTransform {
   static defaultOptions = {
     colors: DEFAULT_COLOR_PALETTE.colors,
   };
@@ -63,7 +62,7 @@ export class AssignColorByBranch extends BaseTransform {
   }
 }
 
-export class MindmapNode extends BaseNode {
+class MindmapNode extends BaseNode {
   static defaultStyleProps: object = {
     ...BaseNode.defaultStyleProps,
     showIcon: false,
@@ -188,9 +187,8 @@ export class MindmapNode extends BaseNode {
     return { width, height, ...keyShape };
   }
 
-  drawKeyShape(attributes: any, container: any) {
+  drawKeyShape(attributes: any, container: any): any {
     const keyStyle = this.getKeyStyle(attributes);
-    // @ts-ignore
     return this.upsert('key', 'rect', keyStyle, container);
   }
 
