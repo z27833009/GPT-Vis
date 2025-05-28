@@ -5,11 +5,13 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 from .generate_chart_url import GenerateChartUrl
+from .validate import validate_params
 import requests
 import json
 
 class GenerateLineChart(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
+
         try:
             width = tool_parameters.get("width", 600)
             height = tool_parameters.get("height", 400)
@@ -17,6 +19,7 @@ class GenerateLineChart(Tool):
             axisXTitle = tool_parameters.get("axisXTitle", "")
             axisYTitle = tool_parameters.get("axisYTitle", "")
             data_str = tool_parameters.get("data", "")
+            theme = tool_parameters.get("theme", "default")
 
             try:
                 data_str = data_str.replace("'", '"')
@@ -24,18 +27,23 @@ class GenerateLineChart(Tool):
             except json.JSONDecodeError as e:
                 print(f"Data Parse Failed: {e}")
 
+            chartType = "line"
             options = {
-                "type": "line",
                 "width": width,
                 "height": height,
                 "title": title,
                 "axisXTitle": axisXTitle,
                 "axisYTitle": axisYTitle,
                 "data": data_list,
+                "theme": theme
             }
 
+            validate_params(chartType, options)
             generate_url = GenerateChartUrl()
-            chart_url = generate_url.generate_chart_url(options)
+            chart_url = generate_url.generate_chart_url({
+              "type": chartType,
+              **options
+            })
 
             print("chart_url", chart_url)
             yield self.create_json_message({
