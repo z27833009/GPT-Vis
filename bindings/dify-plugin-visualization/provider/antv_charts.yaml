@@ -5,6 +5,7 @@ identity:
     - image
     - design
     - utilities
+    - productivity
   label:
     en_US: AntV Visualization Chart
     zh_Hans: AntV 可视化图表

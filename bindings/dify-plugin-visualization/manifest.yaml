@@ -1,7 +1,12 @@
-version: 0.1.3
+version: 0.1.4
 type: plugin
 author: antv
 name: visualization
+tags:
+  - image
+  - design
+  - utilities
+  - productivity
 label:
   en_US: AntV Visualization Chart
   ja_JP: AntV Visualization Chart
@@ -32,7 +37,7 @@ plugins:
   tools:
     - provider/antv_charts.yaml
 meta:
-  version: 0.1.3
+  version: 0.1.4
   arch:
     - amd64
     - arm64
