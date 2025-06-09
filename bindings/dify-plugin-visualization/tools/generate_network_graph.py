@@ -5,7 +5,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 from .generate_chart_url import GenerateChartUrl
-from .validate import validate_params
+from .validate import validate_params, validate_node_edge_data
 import requests
 import json
 
@@ -34,6 +34,7 @@ class GenerateNetWorkGraph(Tool):
             }
 
             validate_params(chartType, options)
+            validate_node_edge_data(options.get('data', {}))
             generate_url = GenerateChartUrl()
             chart_url = generate_url.generate_chart_url({
                 "type": chartType,
