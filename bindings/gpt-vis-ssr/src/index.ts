@@ -8,6 +8,7 @@ import { FlowDiagram } from './vis/flow-diagram';
 import { Funnel } from './vis/funnel';
 import { Histogram } from './vis/histogram';
 import { Line } from './vis/line';
+import { Liquid } from './vis/liquid';
 import { MindMap } from './vis/mind-map';
 import { NetworkGraph } from './vis/network-graph';
 import { Pie } from './vis/pie';
@@ -36,6 +37,7 @@ const VIS = {
   scatter: Scatter,
   treemap: Treemap,
   'word-cloud': WordCloud,
+  liquid: Liquid,
   funnel: Funnel,
 };
 

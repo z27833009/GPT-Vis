@@ -10,4 +10,6 @@ export interface BasePlotProps<T> {
   axisXTitle?: string;
   axisYTitle?: string;
   legendTypeList?: string[];
+  shape?: string;
+  fontSize?: number;
 }
