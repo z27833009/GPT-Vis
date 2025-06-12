@@ -1,5 +1,6 @@
 import { type AreaOptions } from './vis/area';
 import { type BarOptions } from './vis/bar';
+import { type BoxplotOptions } from './vis/boxplot';
 import { type ColumnOptions } from './vis/column';
 import { type DualAxesOptions } from './vis/dual-axes';
 import { type FishboneDiagramOptions } from './vis/fishbone-diagram';
@@ -17,11 +18,13 @@ import { type SankeyOptions } from './vis/sankey';
 import { type ScatterOptions } from './vis/scatter';
 import { type TreemapOptions } from './vis/treemap';
 import { type VennOptions } from './vis/venn';
+import { type ViolinOptions } from './vis/violin';
 import { type WordCloudOptions } from './vis/word-cloud';
 
 export type VisOptionMap = {
   area: AreaOptions;
   bar: BarOptions;
+  boxplot: BoxplotOptions;
   column: ColumnOptions;
   'dual-axes': DualAxesOptions;
   'fishbone-diagram': FishboneDiagramOptions;
@@ -39,6 +42,7 @@ export type VisOptionMap = {
   scatter: ScatterOptions;
   treemap: TreemapOptions;
   venn: VennOptions;
+  violin: ViolinOptions;  
   'word-cloud': WordCloudOptions;
 };
 
