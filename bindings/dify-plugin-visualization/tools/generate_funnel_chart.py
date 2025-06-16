@@ -8,17 +8,14 @@ from .validate import validate_params
 import json
 import requests
 
-class GenerateAreaChart(Tool):
+class GenerateFunnelChart(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         try:
             width = tool_parameters.get("width", 600)
             height = tool_parameters.get("height", 400)
             title = tool_parameters.get("title", "")
-            axisXTitle = tool_parameters.get("axisXTitle", "")
-            axisYTitle = tool_parameters.get("axisYTitle", "")
-            stack = tool_parameters.get("stack", False)
             data_str = tool_parameters.get("data", "")
-            theme =  tool_parameters.get("theme", "default")
+            theme = tool_parameters.get("theme", "default")
 
             try:
                 data_str = data_str.replace("'", '"')
@@ -26,14 +23,11 @@ class GenerateAreaChart(Tool):
             except json.JSONDecodeError as e:
                 print(f"Data Parse Failed: {e}")
 
-            chartType = "area"
+            chartType = "funnel"
             options = {
                 "width": width,
                 "height": height,
                 "title": title,
-                "axisXTitle": axisXTitle,
-                "axisYTitle": axisYTitle,
-                "stack": stack,
                 "data": data_list,
                 "theme": theme
             }
