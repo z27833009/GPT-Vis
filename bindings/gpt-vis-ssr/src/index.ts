@@ -15,6 +15,7 @@ import { NetworkGraph } from './vis/network-graph';
 import { OrganizationChart } from './vis/organization-chart';
 import { Pie } from './vis/pie';
 import { Radar } from './vis/radar';
+import { RadialBar } from './vis/radialbar';
 import { Sankey } from './vis/sankey';
 import { Scatter } from './vis/scatter';
 import { Treemap } from './vis/treemap';
@@ -49,6 +50,7 @@ const VIS = {
   violin: Violin,
   venn: Venn,
   'word-cloud': WordCloud,
+  radialbar: RadialBar,
 };
 
 /**
