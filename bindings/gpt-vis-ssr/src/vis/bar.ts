@@ -22,6 +22,14 @@ export async function Bar(options: BarOptions) {
   let transforms: any = [];
   let radiusStyle = {};
   let encode = {};
+  let labels: any = [
+    {
+      text: 'value',
+      style: { dx: -4 },
+      transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
+      fontSize: 10,
+    },
+  ];
 
   if (theme === 'default') {
     radiusStyle = { radiusTopLeft: 4, radiusTopRight: 4 };
@@ -39,6 +47,14 @@ export async function Bar(options: BarOptions) {
     transforms = [
       {
         type: 'stackY',
+      },
+    ];
+    labels = [
+      {
+        text: 'value',
+        position: 'inside',
+        transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
+        fontSize: 10,
       },
     ];
   }
@@ -79,6 +95,12 @@ export async function Bar(options: BarOptions) {
       },
       y: {
         title: axisYTitle,
+      },
+    },
+    labels: labels,
+    scale: {
+      y: {
+        nice: true,
       },
     },
   });

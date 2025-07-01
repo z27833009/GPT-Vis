@@ -23,6 +23,15 @@ export async function Column(options: ColumnOptions) {
   let radiusStyle = {};
   let encode = {};
 
+  let labels: any = [
+    {
+      text: 'value',
+      style: { dy: 4 },
+      transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
+      fontSize: 10,
+    },
+  ];
+
   if (theme === 'default') {
     radiusStyle = { radiusTopLeft: 4, radiusTopRight: 4 };
   }
@@ -39,6 +48,14 @@ export async function Column(options: ColumnOptions) {
     transforms = [
       {
         type: 'stackY',
+      },
+    ];
+    labels = [
+      {
+        text: 'value',
+        position: 'inside',
+        transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
+        fontSize: 10,
       },
     ];
   }
@@ -78,6 +95,12 @@ export async function Column(options: ColumnOptions) {
       },
       y: {
         title: axisYTitle,
+      },
+    },
+    labels: labels,
+    scale: {
+      y: {
+        nice: true,
       },
     },
   });
