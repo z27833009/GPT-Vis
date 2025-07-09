@@ -61,6 +61,23 @@ Build the server:
 python -m main
 ```
 
+### 🧪 Testing
+
+Run all validate.py tests:
+
+```bash
+python run_tests.py
+```
+
+Available test options:
+
+- `--verbose`: Show detailed test output
+- `--quick`: Run tests with minimal output
+- `--coverage`: Generate test coverage report
+- `--summary`: Show test statistics
+
+The test suite includes comprehensive tests for all validate.py functions with 108 test cases across 15 test classes.
+
 ## 📄 License
 
 MIT@[AntV](https://github.com/antvis).

@@ -68,17 +68,16 @@ def validate_node_edge_data(data: Dict[str, Any]) -> bool:
     nodes = data.get("nodes", [])
     edges = data.get("edges", [])
 
-    # Extract node names
-    node_names = {node["name"] for node in nodes}
-
-    # 1. Check for unique node names
+    # 1. Check for unique node names and collect valid node names
     unique_node_names = set()
+    node_names = set()
     for node in nodes:
-        if "name" not in node:
+        if "name" not in node or node["name"] is None:
             raise ValidationError("Invalid parameters: node name is missing.")
         if node["name"] in unique_node_names:
             raise ValidationError(f"Invalid parameters: nodes name '{node['name']}' is not unique.")
         unique_node_names.add(node["name"])
+        node_names.add(node["name"])
 
     # 2. Check if edge sources and targets exist in nodes
     for edge in edges:
