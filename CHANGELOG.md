@@ -1,5 +1,13 @@
 # @antv/gpt-vis
 
+## 0.5.1
+
+### Patch Changes
+
+- [#161](https://github.com/antvis/GPT-Vis/pull/161) [`32a356f`](https://github.com/antvis/GPT-Vis/commit/32a356f404c77579ee64c56c61ca6c6e16cb2ea9) Thanks [@XinyueDu](https://github.com/XinyueDu)! - add copy feedback
+
+- [#158](https://github.com/antvis/GPT-Vis/pull/158) [`e163133`](https://github.com/antvis/GPT-Vis/commit/e1631332190c3195f523d86f70b7c6840e0b599f) Thanks [@BoyYangzai](https://github.com/BoyYangzai)! - fix: resolve module import error
+
 ## 0.5.0
 
 ### Minor Changes
