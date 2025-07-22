@@ -1,5 +1,11 @@
 # @antv/gpt-vis
 
+## 0.5.2
+
+### Patch Changes
+
+- [#165](https://github.com/antvis/GPT-Vis/pull/165) [`b719fda`](https://github.com/antvis/GPT-Vis/commit/b719fdac45bee255590ed6850c15ad1ef813d5a6) Thanks [@BoyYangzai](https://github.com/BoyYangzai)! - fix css error
+
 ## 0.5.1
 
 ### Patch Changes
