@@ -9,7 +9,7 @@ export const StyledGPTVis = styled.div`
   padding: 16px;
 `;
 
-export const CopyButton = styled.button`
+export const TextButton = styled.button`
   border: none;
   box-shadow: none;
   background: transparent;
@@ -31,7 +31,7 @@ export const CopyButton = styled.button`
   &:hover,
   &:focus {
     color: #666;
-    background: #f5f5f5;
+    background: #e8e8e8;
     transform: scale(1.02);
   }
 
@@ -170,4 +170,12 @@ export const StyledTabButton = styled.button<{ active?: boolean }>`
       props.active ? '0 1px 2px rgba(0, 0, 0, 0.1)' : '0 1px 2px rgba(0, 0, 0, 0.04)'};
     transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+`;
+
+export const Divider = styled.div`
+  width: 1px;
+  height: 16px;
+  background-color: #d9d9d9;
+  margin: 0 8px;
+  flex-shrink: 0;
 `;
