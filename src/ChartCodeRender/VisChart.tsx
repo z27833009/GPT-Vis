@@ -1,12 +1,14 @@
+import { snapdom } from '@zumer/snapdom';
 import React, { memo, useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import json from 'react-syntax-highlighter/dist/esm/languages/hljs/json';
 import { magula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { Check, Copy, ZoomIn, ZoomOut } from './icon';
+import { Check, Copy, DownLoad, ZoomIn, ZoomOut } from './icon';
 import Loading from './Loading';
 import {
   ChartWrapper,
+  Divider,
   ErrorMessage,
   GlobalStyles,
   StyledGPTVis,
@@ -52,6 +54,7 @@ export const RenderVisChart: React.FC<RenderVisChartProps> = memo(
     const [hasRenderError, setHasRenderError] = useState(false);
     const [copied, setCopied] = useState(false);
     const chartRef = useRef<any>(null);
+    const chartContainerRef = useRef<HTMLDivElement>(null);
     let chartJson: ChartJson;
 
     try {
@@ -151,6 +154,20 @@ export const RenderVisChart: React.FC<RenderVisChartProps> = memo(
       }
     };
 
+    const handleDownload = async () => {
+      try {
+        if (chartContainerRef.current) {
+          const result = await snapdom(chartContainerRef.current, { scale: 2 });
+          await result.download({
+            format: 'png',
+            filename: `chart-${type}-${Date.now()}`,
+          });
+        }
+      } catch (error) {
+        console.error('下载图片失败:', error);
+      }
+    };
+
     const isG6 = G6List.includes(type);
 
     // 缩放功能函数
@@ -200,8 +217,13 @@ export const RenderVisChart: React.FC<RenderVisChartProps> = memo(
                     >
                       <ZoomOut size={18} />
                     </TextButton>
+                    <Divider />
                   </>
                 )}
+                <TextButton onClick={handleDownload}>
+                  <DownLoad size={16} />
+                  下载
+                </TextButton>
               </>
             ) : (
               <>
@@ -232,7 +254,7 @@ export const RenderVisChart: React.FC<RenderVisChartProps> = memo(
             >
               <StyledGPTVis className="gpt-vis">
                 <GlobalStyles />
-                <ChartWrapper>
+                <ChartWrapper ref={chartContainerRef}>
                   <ChartComponent
                     {...chartProps}
                     onReady={(chart: any) => {
