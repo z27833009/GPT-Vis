@@ -9,6 +9,7 @@ type PieStyle = {
   backgroundColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
+  textColor?: string;
 };
 
 export type PieOptions = CommonOptions &
@@ -27,7 +28,7 @@ export async function Pie(options: PieOptions) {
     renderPlugins,
     style = {},
   } = options;
-  const { backgroundColor, palette, texture = 'default' } = style;
+  const { backgroundColor, palette, textColor, texture = 'default' } = style;
 
   return await createChart({
     devicePixelRatio: 3,
@@ -59,6 +60,13 @@ export async function Pie(options: PieOptions) {
         fontSize: 12,
         transform: [{ type: 'overlapHide' }],
         ...(texture === 'rough' ? { fontFamily: FontFamily.ROUGH } : {}),
+        ...(textColor
+          ? {
+              style: {
+                fill: textColor,
+              },
+            }
+          : {}),
       },
     ],
     legend: {
@@ -66,6 +74,11 @@ export async function Pie(options: PieOptions) {
         position: 'bottom',
         layout: { justifyContent: 'center' },
         ...(texture === 'rough' ? { itemLabelFontFamily: FontFamily.ROUGH } : {}),
+        ...(textColor
+          ? {
+              itemLabelFill: textColor,
+            }
+          : {}),
       },
     },
     animate: false,

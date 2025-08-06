@@ -8,6 +8,7 @@ type DualAxesStyle = {
   backgroundColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
+  textColor?: string;
 };
 
 type DualAxesSeriesItem = {
@@ -41,13 +42,20 @@ export async function DualAxes(options: DualAxesOptions) {
     Column = 'column',
     Line = 'line',
   }
-  const { backgroundColor, palette, texture = 'default' } = style;
+  const { backgroundColor, palette, textColor, texture = 'default' } = style;
   const hasPalette = !!palette?.[0];
   const paletteConfig = {
     color: {
       range: palette,
     },
   };
+  const axisTextColorConfig = textColor
+    ? {
+        labelFill: textColor,
+        tickStroke: textColor,
+        titleFill: textColor,
+      }
+    : {};
   let radiusStyle = {};
 
   if (theme === 'default') {
@@ -82,9 +90,11 @@ export async function DualAxes(options: DualAxesOptions) {
             y: {
               title: axisYTitle,
               ...getTitleFontStyle(texture),
+              ...axisTextColorConfig,
             },
             x: {
               ...getTitleFontStyle(texture),
+              ...axisTextColorConfig,
             },
           },
           encode: { x: 'category', y: axisYTitle, color: () => axisYTitle },
@@ -95,6 +105,11 @@ export async function DualAxes(options: DualAxesOptions) {
                 return 'rect';
               },
               ...(texture === 'rough' ? { itemLabelFontFamily: FontFamily.ROUGH } : {}),
+              ...(textColor
+                ? {
+                    itemLabelFill: textColor,
+                  }
+                : {}),
             },
           },
           data: undefined,
@@ -128,6 +143,7 @@ export async function DualAxes(options: DualAxesOptions) {
                 position: 'right',
                 title: axisYTitle,
                 ...getTitleFontStyle(texture),
+                ...axisTextColorConfig,
               },
             },
             encode: { x: 'category', y: axisYTitle, shape: 'smooth', color: () => axisYTitle },
@@ -185,6 +201,7 @@ export async function DualAxes(options: DualAxesOptions) {
             x: {
               title: axisXTitle,
               ...getTitleFontStyle(texture),
+              ...axisTextColorConfig,
             },
           },
         }

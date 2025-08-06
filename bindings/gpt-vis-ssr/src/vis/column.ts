@@ -9,6 +9,7 @@ type ColumnStyle = {
   backgroundColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
+  textColor?: string;
 };
 
 export type ColumnOptions = CommonOptions &
@@ -31,8 +32,15 @@ export async function Column(options: ColumnOptions) {
     style = {},
   } = options;
 
-  const { backgroundColor, palette, texture = 'default' } = style;
+  const { backgroundColor, palette, textColor, texture = 'default' } = style;
   const hasGroupField = (data || [])[0]?.group !== undefined;
+  const axisTextColorConfig = textColor
+    ? {
+        labelFill: textColor,
+        tickStroke: textColor,
+        titleFill: textColor,
+      }
+    : {};
   let transforms: any = [];
   let radiusStyle = {};
   let encode = {};
@@ -40,7 +48,11 @@ export async function Column(options: ColumnOptions) {
   let labels: any = [
     {
       text: 'value',
-      style: { dy: -12, ...(texture === 'rough' ? { fontFamily: FontFamily.ROUGH } : {}) },
+      style: {
+        dy: -12,
+        ...(texture === 'rough' ? { fontFamily: FontFamily.ROUGH } : {}),
+        ...(textColor ? { fill: textColor } : {}),
+      },
       transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
       fontSize: 10,
     },
@@ -77,6 +89,13 @@ export async function Column(options: ColumnOptions) {
         position: 'inside',
         transform: [{ type: 'overlapHide' }, { type: 'contrastReverse' }],
         fontSize: 10,
+        ...(textColor
+          ? {
+              style: {
+                fill: textColor,
+              },
+            }
+          : {}),
       },
     ];
   }
@@ -116,17 +135,24 @@ export async function Column(options: ColumnOptions) {
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
       y: {
         title: axisYTitle,
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
     },
     legend: {
       color: {
         ...(texture === 'rough' ? { itemLabelFontFamily: FontFamily.ROUGH } : {}),
+        ...(textColor
+          ? {
+              itemLabelFill: textColor,
+            }
+          : {}),
       },
     },
     labels: labels,

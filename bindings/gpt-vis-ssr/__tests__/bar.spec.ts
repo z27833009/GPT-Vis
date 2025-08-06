@@ -53,6 +53,9 @@ describe('SSR render', () => {
       axisYTitle: 'Sold',
       a: 1,
       texture: 'rough',
+      style: {
+        texture: 'rough',
+      },
     });
 
     expect(vis.toBuffer()).toImageEqual('__tests__/snapshot', 'bar-rough');
@@ -116,6 +119,9 @@ describe('SSR render', () => {
       axisXTitle: 'Month',
       axisYTitle: 'Temperature',
       texture: 'rough',
+      style: {
+        texture: 'rough',
+      },
     });
 
     expect(vis.toBuffer()).toImageEqual('__tests__/snapshot', 'bar-grouped-rough');
@@ -269,6 +275,7 @@ describe('SSR render', () => {
       style: {
         backgroundColor: '#aaa',
         palette: PALETTE,
+        textColor: '#fff',
       },
     });
 

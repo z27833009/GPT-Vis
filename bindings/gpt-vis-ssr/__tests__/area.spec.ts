@@ -25,6 +25,7 @@ describe('SSR render', () => {
       style: {
         backgroundColor: '#aaa',
         palette: PALETTE,
+        textColor: '#fff',
       },
     });
 

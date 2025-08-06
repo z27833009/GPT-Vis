@@ -9,6 +9,7 @@ type RadarStyle = {
   backgroundColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
+  textColor?: string;
 };
 
 export type RadarOptions = CommonOptions &
@@ -74,7 +75,13 @@ export async function Radar(options: RadarOptions) {
 
   const parallelData = transformRadartoParallel(data);
   const position = Object.keys(parallelData[0] || {}).filter((key) => key !== 'group');
-  const { backgroundColor, palette, texture = 'default' } = style;
+  const { backgroundColor, palette, textColor, texture = 'default' } = style;
+  const axisTextColorConfig = textColor
+    ? {
+        labelFill: textColor,
+        titleFill: textColor,
+      }
+    : {};
 
   return await createChart({
     devicePixelRatio: 3,
@@ -98,7 +105,19 @@ export async function Radar(options: RadarOptions) {
     },
     ...(backgroundColor ? { viewStyle: { viewFill: backgroundColor } } : {}),
     legend: {
-      color: parallelData.length > 1 ? { itemMarker: 'point' } : false,
+      color:
+        parallelData.length > 1
+          ? {
+              itemMarker: 'point',
+              ...(textColor
+                ? {
+                    color: {
+                      itemLabelFill: textColor,
+                    },
+                  }
+                : {}),
+            }
+          : false,
       ...(texture === 'rough' ? { itemLabelFontFamily: FontFamily.ROUGH } : {}),
     },
     scale: {
@@ -145,6 +164,7 @@ export async function Radar(options: RadarOptions) {
             ...(texture === 'rough'
               ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
               : {}),
+            ...axisTextColorConfig,
           },
         ];
       }),

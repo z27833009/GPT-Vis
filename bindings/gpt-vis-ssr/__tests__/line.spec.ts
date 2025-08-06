@@ -64,6 +64,9 @@ describe('SSR render', () => {
       ],
       axisXTitle: 'Time',
       axisYTitle: 'Value',
+      style: {
+        texture: 'rough',
+      },
     });
 
     expect(vis.toBuffer()).toImageEqual('__tests__/snapshot', 'line-rough');
@@ -175,6 +178,7 @@ describe('SSR render', () => {
         backgroundColor: '#aaa',
         lineWidth: 4,
         palette: PALETTE,
+        textColor: '#fff',
       },
     });
 

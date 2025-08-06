@@ -9,6 +9,7 @@ type AreaStyle = {
   backgroundColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
+  textColor?: string;
 };
 
 export type AreaOptions = CommonOptions &
@@ -34,7 +35,7 @@ export async function Area(options: AreaOptions) {
     renderPlugins,
     style = {},
   } = options;
-  const { backgroundColor, palette, texture = 'default' } = style;
+  const { backgroundColor, palette, textColor, texture = 'default' } = style;
   const hasPalette = !!palette?.[0];
   const paletteConfig = hasPalette
     ? {
@@ -43,6 +44,13 @@ export async function Area(options: AreaOptions) {
             range: palette,
           },
         },
+      }
+    : {};
+  const axisTextColorConfig = textColor
+    ? {
+        labelFill: textColor,
+        tickStroke: textColor,
+        titleFill: textColor,
       }
     : {};
   const viewStyleConfig = backgroundColor ? { viewStyle: { viewFill: backgroundColor } } : {};
@@ -139,12 +147,14 @@ export async function Area(options: AreaOptions) {
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
       x: {
         title: axisXTitle || false,
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
     },
     children: children,

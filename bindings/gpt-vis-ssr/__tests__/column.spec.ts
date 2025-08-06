@@ -52,6 +52,9 @@ describe('SSR render', () => {
       axisXTitle: 'Type',
       axisYTitle: 'Sold',
       texture: 'rough',
+      style: {
+        texture: 'rough',
+      },
     });
 
     expect(vis.toBuffer()).toImageEqual('__tests__/snapshot', 'column-rough');
@@ -232,6 +235,7 @@ describe('SSR render', () => {
       style: {
         backgroundColor: '#aaa',
         palette: PALETTE,
+        textColor: '#fff',
       },
     });
 

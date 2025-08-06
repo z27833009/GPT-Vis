@@ -8,6 +8,7 @@ import { CommonOptions } from './types';
 type LineStyle = {
   lineWidth?: number;
   backgroundColor?: string;
+  textColor?: string;
   palette?: string[];
   texture?: 'rough' | 'default';
 };
@@ -31,8 +32,15 @@ export async function Line(options: LineOptions) {
   } = options;
 
   const hasGroupField = (data || [])[0]?.group !== undefined;
-  const { lineWidth, backgroundColor, palette, texture = 'default' } = style;
+  const { lineWidth, backgroundColor, palette, textColor, texture = 'default' } = style;
   const hasPalette = !!palette?.[0];
+  const axisTextColorConfig = textColor
+    ? {
+        labelFill: textColor,
+        tickStroke: textColor,
+        titleFill: textColor,
+      }
+    : {};
 
   let encode = {};
   let strokeColor = {};
@@ -67,12 +75,14 @@ export async function Line(options: LineOptions) {
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
       x: {
         title: axisXTitle || false,
         ...(texture === 'rough'
           ? { titleFontFamily: FontFamily.ROUGH, labelFontFamily: FontFamily.ROUGH }
           : {}),
+        ...axisTextColorConfig,
       },
     },
     children: [
@@ -85,7 +95,7 @@ export async function Line(options: LineOptions) {
         labels: [
           {
             text: 'value',
-            style: { textAlign: 'center', dy: -12 },
+            style: { textAlign: 'center', dy: -12, ...(textColor ? { fill: textColor } : {}) },
             transform: [{ type: 'overlapDodgeY' }],
             ...(texture === 'rough' ? { fontFamily: FontFamily.ROUGH } : {}),
           },

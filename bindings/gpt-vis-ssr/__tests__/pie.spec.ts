@@ -51,6 +51,9 @@ describe('SSR render', () => {
         { category: 'Category 5', value: 10 },
         { category: 'Other', value: 5 },
       ],
+      style: {
+        texture: 'rough',
+      },
     });
 
     expect(vis.toBuffer()).toImageEqual('__tests__/snapshot', 'pie-rough');
@@ -154,6 +157,7 @@ describe('SSR render', () => {
       style: {
         backgroundColor: '#aaa',
         palette: PALETTE,
+        textColor: '#fff',
       },
     });
 
