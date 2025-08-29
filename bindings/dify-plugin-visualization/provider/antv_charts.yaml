@@ -18,6 +18,7 @@ identity:
 credentials_for_provider: #Add credentials_for_provider field
   VIS_REQUEST_SERVER:
     type: text-input
+    required: false
     label:
       en_US: VIS_REQUEST_SERVER (AntV Visualization Chart provides a free chart generation service by default. For users with a need for private deployment, they can try using `VIS_REQUEST_SERVER` to customize their own chart generation service)
       zh_Hans: VIS_REQUEST_SERVER（AntV 可视化图表默认提供免费图表生成服务。对于需要私有部署的用户，可以尝试使用 `VIS_REQUEST_SERVER` 自定义自己的图表生成服务）
