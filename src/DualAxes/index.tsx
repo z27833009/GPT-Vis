@@ -2,6 +2,7 @@ import type { DualAxesConfig } from '@ant-design/plots';
 import { DualAxes as ADCDualAxes } from '@ant-design/plots';
 import React, { useMemo } from 'react';
 import { usePlotConfig } from '../ConfigProvider/hooks';
+import { THEME_MAP } from '../theme';
 import { transform } from './util';
 
 export type DualAxesProps = Partial<DualAxesConfig> & {
@@ -42,11 +43,13 @@ const defaultConfig = (props: DualAxesProps): DualAxesConfig => {
 };
 
 const DualAxes = (props: DualAxesProps) => {
-  const { categories, series, ...others } = props;
+  const { categories, series, theme = 'default', ...others } = props;
+  const themeConfig = THEME_MAP[theme];
   const transformData = useMemo(() => transform(series, categories), [props]);
   const config = usePlotConfig<DualAxesConfig>('DualAxes', defaultConfig, {
     ...others,
     ...transformData,
+    theme: themeConfig,
   });
 
   return <ADCDualAxes {...config} />;
