@@ -2,7 +2,8 @@ import type { TreemapConfig } from '@ant-design/plots';
 import { Treemap as ADCTreemap } from '@ant-design/plots';
 import React, { useMemo } from 'react';
 import { usePlotConfig } from '../ConfigProvider/hooks';
-import type { BasePlotProps } from '../types';
+import { THEME_MAP } from '../theme';
+import type { BasePlotProps, Style, Theme } from '../types';
 
 type TreeNode = {
   name: string;
@@ -13,10 +14,21 @@ type TreeNode = {
 type ADCTreemapConfig = TreemapConfig & {
   valueField: string;
 };
-export type TreemapProps = BasePlotProps<TreeNode> & Partial<TreemapConfig>;
+export type TreemapProps = BasePlotProps<TreeNode> & Theme & Style;
 
 const defaultConfig = (props: ADCTreemapConfig): TreemapConfig => {
-  const { valueField = 'value' } = props;
+  const { valueField = 'value', style = {} } = props;
+  const { backgroundColor, palette } = style;
+  const hasPalette = !!palette?.[0];
+  let paletteConfig: any = { color: undefined };
+
+  if (hasPalette) {
+    paletteConfig = {
+      color: {
+        range: palette,
+      },
+    };
+  }
   return {
     legend: false,
     layout: {
@@ -35,6 +47,10 @@ const defaultConfig = (props: ADCTreemapConfig): TreemapConfig => {
       ],
     },
     style: { fillOpacity: 0.8, labelFontSize: 12 },
+    ...(backgroundColor ? { viewStyle: { viewFill: backgroundColor } } : { viewStyle: undefined }),
+    scale: {
+      ...paletteConfig,
+    },
   };
 };
 const transform = (data: TreeNode[]) => {
@@ -45,7 +61,11 @@ const transform = (data: TreeNode[]) => {
 };
 
 const Treemap = (props: TreemapProps) => {
-  const config = usePlotConfig<TreemapConfig>('Treemap', defaultConfig, props);
+  const themeConfig = THEME_MAP[props.theme ?? 'default'];
+  const config = usePlotConfig<any>('Treemap', defaultConfig, {
+    ...props,
+    theme: themeConfig,
+  }) as TreemapConfig;
   const { data, ...others } = config;
   const transformData = useMemo(() => transform(data), [data]);
 

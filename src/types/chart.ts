@@ -40,6 +40,7 @@ export interface BasePlotProps<T> extends BaseChartProps {
   data: T[];
   axisXTitle?: string;
   axisYTitle?: string;
+  title?: string;
 }
 
 export interface BaseMapProps<T> extends BaseChartProps, Map {
@@ -77,3 +78,15 @@ export interface TreeGraphData {
 export interface GraphProps extends BaseGraphProps<GraphData> {}
 
 export interface TreeGraphProps extends BaseGraphProps<TreeGraphData> {}
+
+export interface Theme {
+  theme?: 'default' | 'academy' | 'dark';
+}
+
+export interface Style {
+  style?: {
+    lineWidth?: number;
+    backgroundColor?: string;
+    palette?: string[];
+  };
+}

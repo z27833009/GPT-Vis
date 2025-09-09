@@ -1,22 +1,6 @@
----
-order: 7
-group:
-  order: 1
-  title: Statistical Charts
-toc: content
----
-
-# Word Cloud
-
-A word cloud enlarges frequently occurring keywords in text to help users quickly identify important information.
-
-## Code Examples
-
-### Basic Usage
-
-```jsx
-import React from 'react';
 import { WordCloud } from '@antv/gpt-vis';
+import { Form, Input, Select } from 'antd';
+import React, { useState } from 'react';
 
 const data = [
   { value: 11.3865516372, text: '物质' },
@@ -86,7 +70,7 @@ const data = [
   { value: 15.51728049278, text: '心灵' },
   { value: 10.1394775363, text: '任何事物' },
   { value: 14.95161725614, text: '哲学家' },
-  { value: 13.8190015297, text: '理性' },
+  { value: 13.78796485028, text: '感受' },
   { value: 10.3743171274, text: '天主' },
   { value: 10.2117981979, text: '质料' },
   { value: 9.14102377386, text: '存在' },
@@ -117,127 +101,123 @@ const data = [
   { value: 19.89886786678, text: '潜意识' },
   { value: 12.76848869812, text: '意识' },
 ];
-export default () => <WordCloud data={data} containerStyle={{ height: 300 }} />;
-```
 
-### Markdown Protocol
+const themes = ['default', 'academy', 'dark'] as const;
 
-```tsx
-import { Bubble, type BubbleProps } from '@ant-design/x';
-import { WordCloud, withChartCode, ChartType, GPTVisLite } from '@antv/gpt-vis';
+export const PALETTE = [
+  '#8459fc',
+  '#ff89bd',
+  '#1677ff',
+  '#00c2ff',
+  '#ff9a00',
+  '#f2cc2e',
+  '#7587dc',
+  '#bd80fa',
+];
 
-const bgStyle = {
-  display: 'grid',
-  gridGap: '20px 0',
-  background: '#f7f7f7',
-  padding: 20,
-  borderRadius: 8,
-  overflow: 'auto',
-};
+export const DEFAULT_COLOR_PALETTE = [
+  '#1783FF',
+  '#F08F56',
+  '#D580FF',
+  '#00C9C9',
+  '#7863FF',
+  '#DB9D0D',
+  '#60C42D',
+  '#FF80CA',
+  '#2491B3',
+  '#17C76F',
+];
 
-const markdownContent = `
- ~~~vis-chart
-  {
-    "type": "word-cloud",
-    "data": [
-      { "value": 9, "text": "AntV" },
-      { "value": 8, "text": "F2" },
-      { "value": 8, "text": "G2" },
-      { "value": 8, "text": "G6" },
-      { "value": 8, "text": "DataSet" },
-      { "value": 8, "text": "墨者学院" },
-      { "value": 6, "text": "Analysis" },
-      { "value": 6, "text": "Data Mining" },
-      { "value": 6, "text": "Data Vis" },
-      { "value": 6, "text": "Design" },
-      { "value": 6, "text": "Grammar" },
-      { "value": 6, "text": "Graphics" },
-      { "value": 6, "text": "Graph" },
-      { "value": 6, "text": "Hierarchy" },
-      { "value": 6, "text": "Labeling" },
-      { "value": 6, "text": "Layout" },
-      { "value": 6, "text": "Quantitative" },
-      { "value": 6, "text": "Relation" },
-      { "value": 6, "text": "Statistics" },
-      { "value": 6, "text": "可视化" },
-      { "value": 6, "text": "数据" },
-      { "value": 6, "text": "数据可视化" }
-    ]
-  }
-~~~`;
-
-const CodeComponent = withChartCode({
-  components: { [ChartType.WordCloud]: WordCloud },
-  style: { width: 400 },
-});
-
-const RenderMarkdown: BubbleProps['messageRender'] = (content) => (
-  <GPTVisLite components={{ code: CodeComponent }}>{content}</GPTVisLite>
-);
+export const ACADEMY_COLOR_PALETTE = [
+  '#4e79a7',
+  '#f28e2c',
+  '#e15759',
+  '#76b7b2',
+  '#59a14f',
+  '#edc949',
+  '#af7aa1',
+  '#ff9da7',
+  '#9c755f',
+  '#bab0ab',
+];
 
 export default () => {
+  const [theme, setTheme] = useState<'default' | 'academy' | 'dark'>('default');
+  const [backgroundColor, setBackgroundColor] = useState<string>('');
+  const [palette, setPalette] = useState<string[]>([]);
+
+  const onValuesChange = (changedValues: {
+    theme: 'default' | 'academy' | 'dark';
+    backgroundColor: string;
+    palette: string[];
+  }) => {
+    if (changedValues.theme) setTheme(changedValues.theme);
+    if (changedValues.backgroundColor !== undefined)
+      setBackgroundColor(changedValues.backgroundColor);
+    if (changedValues.palette !== undefined) {
+      let newPalette = changedValues.palette;
+      if (typeof newPalette === 'string') {
+        try {
+          newPalette = JSON.parse(newPalette);
+        } catch {
+          newPalette = [];
+        }
+      }
+      setPalette(Array.isArray(newPalette) ? newPalette : []);
+    } else {
+      setPalette([]);
+    }
+  };
+
   return (
-    <div style={bgStyle}>
-      <Bubble
-        placement="end"
-        content="Visualize my data with a word cloud"
-        avatar={{
-          src: 'https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*2Q5LRJ3LFPUAAAAAAAAAAAAADmJ7AQ/fmt.webp',
-        }}
-        styles={{ content: { background: '#ebebeb' } }}
-      />
-      <Bubble
-        content={markdownContent}
-        messageRender={RenderMarkdown}
-        avatar={{
-          src: 'https://mdn.alipayobjects.com/huamei_je4oko/afts/img/A*6LRBT7rjOkQAAAAAAAAAAAAADsZ-AQ/original',
-        }}
-        variant="shadow"
-        styles={{ content: { background: '#fff' } }}
+    <div>
+      <Form
+        layout="inline"
+        style={{ marginBottom: 12 }}
+        initialValues={{ theme, backgroundColor, palette }}
+        onValuesChange={onValuesChange}
+      >
+        <Form.Item label="Theme" name="theme" style={{ marginBottom: 6 }}>
+          <Select style={{ width: 120 }} options={themes.map((t) => ({ label: t, value: t }))} />
+        </Form.Item>
+        <Form.Item
+          label="Background"
+          name="backgroundColor"
+          rules={[
+            {
+              pattern: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
+              message: '请输入有效的色值编码，例如 #fff 或 #ffffff',
+            },
+          ]}
+          style={{ marginBottom: 6 }}
+        >
+          <Input placeholder="#ffffff" style={{ width: 120 }} />
+        </Form.Item>
+        <Form.Item label="Palette" name="palette" style={{ marginBottom: 6 }}>
+          <Select
+            placeholder="选择调色板"
+            style={{ width: 200 }}
+            options={[
+              {
+                label: `默认调色板: ${DEFAULT_COLOR_PALETTE.join(', ')}`,
+                value: JSON.stringify(DEFAULT_COLOR_PALETTE),
+              },
+              {
+                label: `学术风格调色板: ${ACADEMY_COLOR_PALETTE.join(', ')}`,
+                value: JSON.stringify(ACADEMY_COLOR_PALETTE),
+              },
+              { label: `内置调色板: ${PALETTE.join(', ')}`, value: JSON.stringify(PALETTE) },
+            ]}
+            allowClear
+          />
+        </Form.Item>
+      </Form>
+      <WordCloud
+        data={data}
+        containerStyle={{ height: 300 }}
+        theme={theme}
+        style={{ backgroundColor, palette }}
       />
     </div>
   );
 };
-```
-
-## Spec
-
-```json
-{
-  "type": "word-cloud",
-  "data": [
-    { "value": 11.739204307083542, "text": "Water is" },
-    { "value": 9.23723855786, "text": "the source" },
-    { "value": 7.75434839431, "text": "Everything" },
-    { "value": 11.3865516372, "text": "Matter" },
-    { "value": 7.75434839431, "text": "Everything" },
-    { "value": 5.83541244308, "text": "Create" },
-    { "value": 4.27215339948, "text": "Form" }
-  ]
-}
-```
-
-## API
-
-### WordCloudProps
-
-| Property | Type                                     | Required | Default   | Description |
-| -------- | ---------------------------------------- | -------- | --------- | ----------- |
-| data     | WordCloudDataItem[]                      | Yes      | -         | Data        |
-| title    | string                                   | No       | -         | Chart title |
-| theme    | "default" &#124; "dark" &#124; "academy" | No       | "default" | Chart theme |
-| style    | IStyle                                   | No       | -         | Chart style |
-
-### IStyle
-
-| Property        | Type     | Required | Default | Description      |
-| --------------- | -------- | -------- | ------- | ---------------- |
-| backgroundColor | string   | No       | -       | Background color |
-| palette         | string[] | No       | -       | Color mapping    |
-
-### WordCloudDataItem
-
-| Property | Type   | Required | Default | Description |
-| -------- | ------ | -------- | ------- | ----------- |
-| text     | string | Yes      | -       | Text        |
-| value    | number | Yes      | -       | Frequency   |

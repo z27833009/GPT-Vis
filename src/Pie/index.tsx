@@ -3,7 +3,8 @@ import { Pie as ADCPie } from '@ant-design/plots';
 import { round, sumBy } from 'lodash';
 import React from 'react';
 import { usePlotConfig } from '../ConfigProvider/hooks';
-import type { BasePlotProps } from '../types';
+import { THEME_MAP } from '../theme';
+import type { BasePlotProps, Theme } from '../types';
 
 /**
  * PieDataItem is the type for each data item in the pie chart.
@@ -21,12 +22,22 @@ type PieDataItem = {
  * the props for the Pie
  * @param data pie data
  */
-export type PieProps = BasePlotProps<PieDataItem> & Partial<PieConfig>;
+export type PieProps = BasePlotProps<PieDataItem> & Partial<PieConfig> & Theme;
 
 const defaultConfig = (props: PieConfig): PieConfig => {
-  const { data = [], angleField = 'value', colorField = 'category' } = props;
+  const { data = [], angleField = 'value', colorField = 'category', style = {} } = props;
   const sumValue = sumBy(data, angleField);
+  const { backgroundColor, palette } = style;
+  const hasPalette = !!palette?.[0];
+  let paletteConfig: any = { color: undefined };
 
+  if (hasPalette) {
+    paletteConfig = {
+      color: {
+        range: palette,
+      },
+    };
+  }
   return {
     angleField,
     colorField,
@@ -53,11 +64,19 @@ const defaultConfig = (props: PieConfig): PieConfig => {
         single: true,
       },
     },
+    scale: {
+      ...paletteConfig,
+    },
+    ...(backgroundColor ? { viewStyle: { viewFill: backgroundColor } } : { viewStyle: undefined }),
   };
 };
 
 const Pie = (props: PieProps) => {
-  const config = usePlotConfig<PieConfig>('Pie', defaultConfig, props);
+  const themeConfig = THEME_MAP[props.theme ?? 'default'];
+  const config = usePlotConfig<any>('Pie', defaultConfig, {
+    ...props,
+    theme: themeConfig,
+  }) as PieConfig;
 
   return <ADCPie {...config} />;
 };

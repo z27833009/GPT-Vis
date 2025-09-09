@@ -35,6 +35,11 @@ type Histogram = {
   title?: string;
   axisXTitle?: string;
   axisYTitle?: string;
+  theme?: 'default' | 'dark' | 'academy';
+  style?: {
+    backgroundColor?: string;
+    palette?: string[];
+  };
 };
 ```
 
@@ -46,6 +51,10 @@ type Histogram = {
 - title：图表的标题，可选，文本类型，用于定义直方图的图表标题。
 - axisXTitle：X 轴的轴标题文本，可选，文本类型。
 - axisXTitle：Y 轴的轴标题文本，可选，文本类型。
+- theme：图表主题，选填，文本类型，可选值为 "default" | "dark" | "academy"，默认值为 "default"。
+- style：图表样式，选填，对象类型；
+  - backgroundColor：背景颜色，选填，文本类型，值为合法的颜色值。
+  - palette：颜色映射，选填，数组类型，值为合法的 颜色值数组。
 
 ## 使用示例
 
